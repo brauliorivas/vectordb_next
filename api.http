@@ -1,0 +1,42 @@
+### Return elements from db
+POST http://localhost:8000/search?query=I want some costumes
+
+### Return all elements from db
+GET http://localhost:8000/products
+
+### Return element from db
+GET http://localhost:8000/products/3
+
+### Analyze element from db with Gemini
+POST http://localhost:8000/analyze?query=tell me some feature
+Content-Type: application/json
+
+{
+  "history": [
+  {
+    "role": "user",
+    "parts": [
+      "You are an Ecommerce Assitant. This is very important. You will talk nothing else more than about the product information. The information of the product is as a json file that you will use to talk with me. From now, I will ask you about the product. Anything unrelated you must not answer. Just about the product.",
+      "{\"id\": 3, \"name\": \"Woodstock- Collage 500 pc Puzzle\", \"image\": \"https://images-na.ssl-images-amazon.com/images/I/61plo8Xv4vL.jpg\", \"price\": 17.49, \"category\": \"Toys & Games \", \"about\": \"Make sure this fits by entering your model number. | Puzzle has 500 pieces | Completed puzzle measure 14 x 19 | 100% officially licensed merchandise | Great for fans & puzzlers alike\", \"weight\": \"13.4 ounces\", \"specifications\": \"ProductDimensions:1.9x8x10inches|ItemWeight:13.4ounces|ShippingWeight:13.4ounces(Viewshippingratesandpolicies)|ASIN:B07MX21WWX|Itemmodelnumber:62151|Manufacturerrecommendedage:14yearsandup\", \"details\": \"show up to 2 reviews by default 100% Officially licensed merchandise; complete puzzle measures 14 x 19 in. | 13.4 ounces (View shipping rates and policies)\"}"
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      "Alright, I am now ready to talk about the product. Please ask me anything about the product. I will try to answer you as best as I can."
+    ]
+  },
+  {
+    "role": "user",
+    "parts": [
+      "how much does it cost?"
+    ]
+  },
+  {
+    "role": "model",
+    "parts": [
+      "The product costs $17.49."
+    ]
+  }
+]
+}   
